@@ -1,5 +1,3 @@
-Ibotta Dev Project
-=========
 
 
 # The Project
