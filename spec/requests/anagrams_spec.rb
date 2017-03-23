@@ -1,15 +1,14 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Anagram API', type: :request do
-  let!(:word_1) { Word.create(word: "dare") }
-  let!(:word_2) { Word.create(word: "dear") }
+RSpec.describe "Anagram API", type: :request do
 
-  describe 'GET /anagrams' do
-    context 'fetch for words with anagrams' do
+  describe "GET /anagrams" do
+    context "fetch for words with anagrams" do
 
-      it 'finds the anagrams' do
+      it "finds the anagrams" do
         get "/anagrams", params: {word: ["read"]}
         expect(JSON.parse(response.body)).to eq(["dare", "dear"])
+        expect(response).to have_http_status(200)
       end
     end
   end
