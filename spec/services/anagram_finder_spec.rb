@@ -20,6 +20,7 @@ RSpec.describe 'AnagramFinder' do
 
         it "should set the hash up properly" do
           allow(anagram_finder).to receive(:words).and_return(["fart", "raft"])
+          #words = anagram_finder.words
           expect(anagram_finder.words_by_sorted_string).to eq({"afrt"=>["fart", "raft"]})
         end
 

@@ -70,36 +70,22 @@ Note that a word is not considered to be its own anagram.
 
 
 ## Tests
-
+I have removed tests provided with the project and re-written them using Rspec.
+Please add the following line to the development and test group.
+```
+gem 'rspec-rails', '~> 3.5'
+````
 We have provided a suite of tests to help as you develop the API. To run the tests you must have Ruby installed ([docs](https://www.ruby-lang.org/en/documentation/installation/)):
 
 ```{bash}
 ruby anagram_test.rb
 ```
 
-Only the first test will be executed, all the others have been made pending using the `pend` method. Delete or comment out the next `pend` as you get each test passing.
-
-If you are running your server somewhere other than localhost port 3000, you can configure the test runner with configuration options described by
-
-```{bash}
-ruby anagram_test.rb -h
-```
-
+## Benchmarking
 You are welcome to add additional test cases if that helps with your development process. The [benchmark-bigo](https://github.com/davy/benchmark-bigo) gem is helpful if you wish to do performance testing on your implementation.
 
 ## API Client
-
-We have provided an API client in `anagram_client.rb`. This is used in the test suite, and can also be used in development.
-
-To run the client in the Ruby console, use `irb`:
-
-```{ruby}
-$ irb
-> require_relative 'anagram_client'
-> client = AnagramClient.new
-> client.post('/words.json', nil, { 'words' => ['read', 'dear', 'dare']})
-> client.get('/anagrams/read.json')
-```
+The API Client needed for the tests provided with in the project has been deleted. All tests can be run in RSpec with out a client.
 
 ## Documentation
 

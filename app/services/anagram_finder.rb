@@ -14,8 +14,8 @@ class AnagramFinder
     end
   end
 
-  def self.words_by_sorted_string
-    words.each_with_object(Hash.new []) do |word, hash|
+  def self.words_by_sorted_string#(word_from_params)
+    thing = words.each_with_object(Hash.new []) do |word, hash|
       hash[sorted_string(word)] += [word]
     end
   end
@@ -27,8 +27,4 @@ class AnagramFinder
     end
     anagram_hash
   end
-
 end
-
-# create_data
-# return_anagrams_hash

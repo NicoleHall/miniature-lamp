@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :words, only: [:create, :destroy] do
+  resources :words, only: [:create, :destroy, :index] do
     delete '/', to: 'words#delete_all', on: :collection
     #on collection makes the route not have an id param before the actual definition of the route
   end

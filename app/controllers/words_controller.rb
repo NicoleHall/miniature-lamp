@@ -1,6 +1,13 @@
 class WordsController < ApplicationController
 
   #todo: handle errors for create. if words aren't created don't send a 201
+  # def json_response(object, status = 200)
+  #   render json: object, status: status
+  # end
+
+  def index
+    json_response(Word.all.first(10))
+  end
 
   def create
     new_words = []
