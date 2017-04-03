@@ -5,6 +5,8 @@ RSpec.describe 'Anagram API', type: :request do
   let!(:word_2) { Word.create(word: "b") }
   let!(:word_3) { Word.create(word: "c") }
 
+  # def json returns this: JSON.parse(response.body)
+
   describe 'POST /words' do
 
     context 'when the request is valid' do
@@ -12,19 +14,18 @@ RSpec.describe 'Anagram API', type: :request do
       it 'adds a single word to the corpus' do
         post "/words", params: {word: ["banana"]}
         expect(Word.count).to eq(4)
-        expect(JSON.parse(response.body).first['word']).to eq("banana")
+        expect(json.first['word']).to eq("banana")
         expect(response).to have_http_status(201)
       end
 
       it 'adds a mulitple words to the corpus' do
         post "/words", params: {word: ["peach", "cherry"]}
         expect(Word.count).to eq(5)
-        expect(JSON.parse(response.body).first['word']).to eq("peach")
-        expect(JSON.parse(response.body).second['word']).to eq("cherry")
+        expect(json.first['word']).to eq("peach")
+        expect(json.second['word']).to eq("cherry")
         expect(response).to have_http_status(201)
       end
     end
-
   end
 
   describe 'DELETE /words' do
@@ -32,9 +33,6 @@ RSpec.describe 'Anagram API', type: :request do
 
     it 'has no words in the db' do
       expect(Word.count).to eq(0)
-    end
-
-    it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
