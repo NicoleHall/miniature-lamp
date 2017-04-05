@@ -19,8 +19,8 @@ RSpec.describe 'AnagramFinder' do
         end
 
         it "should set the hash up properly" do
-          allow(anagram_finder).to receive(:words).and_return(["dare", "dear"])
-          #words = anagram_finder.words
+          #allow(anagram_finder).to receive(:words).and_return(["dare", "dear"])
+          words = anagram_finder.words
           expect(anagram_finder.words_by_sorted_string).to eq({"ader"=>["dare", "dear"]})
         end
 
